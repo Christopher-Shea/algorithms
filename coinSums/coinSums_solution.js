@@ -1,7 +1,7 @@
-//British pence
+//British coins
 const coins = [1, 2, 5, 10, 20, 50, 100, 200];
 
-// American cents
+// American coins
 // const coins = [1, 5, 10, 25, 50, 100]
 
 // recursive solution
