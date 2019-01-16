@@ -52,7 +52,7 @@ function coinSums(total) {
   return sums[total];
 }
 
-console.log(coinSums(5)) //4
-console.log(coinSums(8)) //7
-console.log(coinSums(12)) //15
-console.log(coinSums(17)) //28
+console.log(coinSums(5)); // 4
+console.log(coinSums(8)); // 7
+console.log(coinSums(12)); // 15
+console.log(coinSums(17)); // 28
