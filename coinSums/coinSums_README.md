@@ -2,6 +2,7 @@
 Given a set of available coin values and a total value, calculate the distinct number of ways that total can be made from the available coins.
 
 For example, if in London, a total of 8 pence can be made the 7 following ways:
+
 ```
 1 * 5p + 1 * 2p + 1 * 1p
 1 * 5p + 3 * 1p
@@ -11,6 +12,7 @@ For example, if in London, a total of 8 pence can be made the 7 following ways:
 1 * 2p + 6 * 1p
 8 * 1p
 ```
+
 When given a set of available British coins, and the total 8, the program will output 7.
 
 ## Constraints

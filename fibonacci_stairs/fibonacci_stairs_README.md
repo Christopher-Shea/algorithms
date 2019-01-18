@@ -17,6 +17,7 @@ Month Eight:  8 pairs of babies, 13 pairs of adults
 
 After eight months, there are a total of 8 pairs of babies + 13 pairs of adults = 21 pairs of rabbits.
 The total number of rabbit pairs for a given month can be described by the following sequence:
+
 ```
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...]
 ```
@@ -27,10 +28,10 @@ Write a program that yields the number of rabbit pairs in the population after a
 None
 
 ## Input - Fibonacci Sequence
-The number of months after the inception of the rabbit breeding program.
+The number of months after the inception of the rabbit breeding program
 
 ## Output
-The total number of rabbit pairs, both babies and adults, present in the population after the given number of months.
+The total number of rabbit pairs, both babies and adults, present in the population after the given number of months
 
 
 
@@ -38,6 +39,7 @@ The total number of rabbit pairs, both babies and adults, present in the populat
 When climbing steps, most people will take the steps one at a time. Someone in a rush, or looking for a workout, or having just drunk a large amount of coffee might occasionally take a doulbe-step. Assume that a person can make a decision to take a single or a double step every step they take.
 
 When climbing 3 steps, there are 3 distinct ways to get to that third step:
+
 ```
 1 step - 1 step - 1 step
 1 step - 2 steps
@@ -45,6 +47,7 @@ When climbing 3 steps, there are 3 distinct ways to get to that third step:
 ```
 
 When climbing 5 steps, there are 8 distinct ways to get to the top:
+
 ```
 1 step - 1 step - 1 step - 1 step - 1 step
 1 step - 1 step - 1 step - 2 steps
@@ -59,13 +62,13 @@ When climbing 5 steps, there are 8 distinct ways to get to the top:
 Write a program that yields the distinct number of ways to reach the top of a set of stairs of a given size.
 
 ## Constraints
-Steps can only be taken as singles or doubles.
+Steps can only be taken one or two at a time.
 
 ## Input - stairSteps
-The number of stairs being climbed.
+The number of stairs being climbed
 
 ## Output
-The distinct number of ways to reach the top of the set of stairs.
+The distinct number of ways to reach the top of the set of stairs
 
 ## Additional Notes
 I included the stairSteps problem in this folder because I was fascinated by its adherence to the Fibonacci sequence. If I come across other problems that follow this pattern I will add them as well.
