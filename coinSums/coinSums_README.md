@@ -1,4 +1,4 @@
-## Description
+# Description
 Given a set of available coin values and a total value, calculate the distinct number of ways that total can be made from the available coins.
 
 For example, if in London, a total of 8 pence can be made the 7 following ways:
