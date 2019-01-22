@@ -26,14 +26,16 @@ When rotated 90 degrees clockwise, the same matrix will look like this:
 Write a program that takes a matrix and rotates it.
 
 ## Constraints
-None
+Varies by solution provided. Some solutions accept only square matrices.
+Some accept all rectangular matrices.
+Some accept a directional input (1 for clockwise, -1 for counterclockwise) that will default to clockwise.
+Some accept a "velocity" that indicates both the direction AND number of rotations.
 
 ## Input
-A matrix represented as an array of arrays - the array can be square (nxn) or rectangular (nxm).
-A "velocity" that indicates the direction and number of 90-degree rotations to make.
-A positive velocity describes a clockwise rotation, a negative velocity counterclockwise.
+Varies by solution provided. See notes above.
 
 ## Output
 The rotated matrix.
 
 ## Additional Notes
+Not all solutions will pass all the test cases provided. For example, the solutions designed for square matrices only will not properly rotate a rectangular matrix. Uncomment the test cases that do not pertain to the solution being tested.
