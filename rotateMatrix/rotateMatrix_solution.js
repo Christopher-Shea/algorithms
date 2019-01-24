@@ -86,7 +86,7 @@ function rotateMatrix (matrix, velocity = 1) {
   return velocity === 0 ? rotated : rotateMatrix(rotated, velocity);
 }
 
-
+module.exports = rotateMatrix;
 
 // square matrix
 console.log(rotateMatrix([[1, 2], [3, 4]]));
