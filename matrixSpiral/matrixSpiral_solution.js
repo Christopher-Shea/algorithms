@@ -42,6 +42,20 @@ function matrixSpiral (matrix) {
 }
 
 
+// make use of previously defined rotate function
+// const rotate = require('../rotateMatrix/rotateMatrix_solution.js');
+// function matrixSpiral (matrix) {
+//   let spiral = [];
+//   while(matrix.length) {
+//     // grab first row of matrix
+//     spiral = spiral.concat(matrix.shift());
+//     // rotate counterclockwise
+//     matrix = matrix[0] ? rotate(matrix, -1) : matrix;
+//   }
+//   return spiral;
+// }
+
+
 console.log(matrixSpiral([[1, 2], [3, 4]]));
 // [1, 2, 4, 3]
 console.log(matrixSpiral([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]));
