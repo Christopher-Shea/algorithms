@@ -38,4 +38,4 @@ Varies by solution provided. See notes above.
 The rotated matrix.
 
 ## Additional Notes
-Not all solutions will pass all the test cases provided. For example, the solutions designed for square matrices only will not properly rotate a rectangular matrix. Uncomment the test cases that do not pertain to the solution being tested.
+Got a litle carried away with this problem - lots of ways to tackle it. Not all solutions will pass all the test cases provided. For example, the solutions designed for square matrices only will not properly rotate a rectangular matrix. Uncomment the test cases that do not pertain to the solution being tested.
