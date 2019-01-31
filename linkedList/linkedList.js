@@ -59,7 +59,7 @@ class LinkedList {
     this.head = newHead;
   }
 
-  // Remove head and return the value of the removed node - O(1)
+  // Remove head and return its value - O(1)
   removeHead() {
     // make sure the list is not empty
     if (this.head) {
@@ -76,7 +76,7 @@ class LinkedList {
     }
   }
 
-  // Remove tail and return the value of the removed node - O(n)
+  // Remove tail and return its value - O(n)
   // Cannot perform operation in constant time without a doubly-linked list
   removeTail() {
     // make sure the list is not empty
@@ -123,31 +123,40 @@ class LinkedList {
     }
   }
 
-  // Removes a given value from the list and returns true if removed
+  // Removes a target value from the list and returns the new head
   // Assumes that values in the list are unique;
   remove(target) {
-    if (this.head.value === target) {
-      return this.removeHead();
-    } else if (this.tail.value === target) {
-      return this.removeTail();
-    }
-    // traverse the list until parent of the target is found
-    let current = this.head;
-    while (current.next.value !== target) {
-      if (current.next.next === null) {
-        // current is the second to last node and does not contain the target value
-        // tail has already been checked - target does not exist in list
-        console.log('list does not contain the target value')
-        return false;
+    if (this.head) {
+      // handle case where head is the target
+      // can't call removeHead() because we want to return the new head, not the removed value
+      if (this.head.value === target) {
+        if (!this.head.next) {
+          this.tail = null;
+        }
+        this.head = this.head.next;
+        return this.head;
       }
-      current = current.next;
+      // traverse the list until parent of the target is found
+      let current = this.head
+      while (current.next !== null) {
+        if (current.next.value === target) {
+          // adjust next pointer for parent of target value
+          current.next = current.next.next;
+          // check if tail needs to be reset
+          if (current.next === null) {
+            this.tail = current;
+          }
+          return this.head;
+        }
+        current = current.next;
+      }
+      // at end of list, target not found
+      console.log('list does not contain the target value');
+      return this.head;
+    } else {
+      console.log('list is empty');
+      return this.head;
     }
-    let garbage = current.next;
-    // adjust pointer for parent of removed value
-    current.next = current.next.next;
-    // remove target node's next pointer
-    garbage.next = null;
-    return true;
   };
 
   // Inserts a value into the list after a given target value
