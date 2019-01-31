@@ -184,6 +184,11 @@ class LinkedList {
 
 }
 
+module.exports = {
+  LinkedList,
+  Node
+}
+
 const linked = new LinkedList();
 console.log(linked.head, linked.tail); // null, null
 linked.addTail('tail');
