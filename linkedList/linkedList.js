@@ -28,7 +28,7 @@ class LinkedList {
     // otherwise, update the current tail's 'next' pointer to the incoming node
       this.tail.next = newTail;
     }
-    // set the tail pointer
+    // and set the tail pointer
     this.tail = newTail;
   }
 
@@ -42,7 +42,7 @@ class LinkedList {
   //     while (current.next) {
   //       current = current.next;
   //     }
-  //     // current.next is null - at end of list
+  //     // current.next is null - at the tail
   //     current.next = newTail;
   //   }
   // }
@@ -61,14 +61,14 @@ class LinkedList {
 
   // Remove head and return the value of the removed node - O(1)
   removeHead() {
-    // first make sure the list is not empty
+    // make sure the list is not empty
     if (this.head) {
       let headValue = this.head.value;
       // if the head is the only item in the list, set the tail to null
       if (!this.head.next) {
         this.tail = null;
       }
-      // this also covers the case where there is only one item in the list - head will be set to null as well
+      // if there is only one item in the list, the following will set the head to null
       this.head = this.head.next;
       return headValue;
     } else {
@@ -79,7 +79,7 @@ class LinkedList {
   // Remove tail and return the value of the removed node - O(n)
   // Cannot perform operation in constant time without a doubly-linked list
   removeTail() {
-    // first make sure the list is not empty
+    // make sure the list is not empty
     if (this.head) {
       let tailValue;
       // if there is only one item in the list, set the head to null
@@ -90,7 +90,7 @@ class LinkedList {
         this.tail = null;
         return tailValue;
       }
-      // find second-to-last node (.next.next will be null)
+      // traverse list to find second-to-last node (current.next will be the tail and current.next.next will be null)
       let current = this.head;
       while(current.next.next) {
         current = current.next;
@@ -107,6 +107,7 @@ class LinkedList {
   // Search list to see if a value is present - O(n)
   contains(target) {
     if (this.head) {
+      // traverse the list
       let current = this.head;
       do {
         if (current.value === target) {
@@ -114,12 +115,64 @@ class LinkedList {
         }
         current = current.next
       } while (current);
+      // current node is null, target value has not been found
       return false;
     } else {
       console.log('list is empty');
       return false;
     }
   }
+
+  // Removes a given value from the list and returns true if removed
+  // Assumes that values in the list are unique;
+  remove(target) {
+    if (this.head.value === target) {
+      return this.removeHead();
+    } else if (this.tail.value === target) {
+      return this.removeTail();
+    }
+    // traverse the list until parent of the target is found
+    let current = this.head;
+    while (current.next.value !== target) {
+      if (current.next.next === null) {
+        // current is the second to last node and does not contain the target value
+        // tail has already been checked - target does not exist in list
+        console.log('list does not contain the target value')
+        return false;
+      }
+      current = current.next;
+    }
+    let garbage = current.next;
+    // adjust pointer for parent of removed value
+    current.next = current.next.next;
+    // remove target node's next pointer
+    garbage.next = null;
+    return true;
+  };
+
+  // Inserts a value into the list after a given target value
+  // Assumes that values in the list are unique;
+  insert(target, insert) {
+    let newNode = new Node(insert);
+    // traverse until target node is found
+    let current = this.head;
+    while (current.value !== target) {
+      if (current.next === null) {
+        // current is the tail and is not the target node
+        console.log('list does not contain the target value')
+        return false;
+      }
+      current = current.next;
+    }
+    // insert
+    newNode.next = current.next;
+    current.next = newNode;
+    // check if tail needs to be reset
+    if (newNode.next === null) {
+      this.tail = newNode;
+    }
+  };
+
 }
 
 const linked = new LinkedList();
@@ -138,17 +191,25 @@ console.log(linked.head, linked.tail); // null, null
 for (let i = 0; i <= 10; i++) {
   linked.addHead(i);
 }
+linked.remove(0);
+linked.insert(7, 11);
+linked.remove(5);
+linked.insert(1, 12)
 let nodeValues = [];
 while(linked.head){
   nodeValues.push(linked.removeTail());
 }
-console.log(nodeValues); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(nodeValues); // [12, 1, 2, 3, 4, 6, 11, 7, 8, 9, 10]
 
 for (let i = 0; i <= 10; i++) {
   linked.addTail(i);
 }
+linked.remove(0);
+linked.insert(7, 11);
+linked.remove(5);
+linked.insert(1, 12)
 nodeValues = [];
 while(linked.tail){
   nodeValues.push(linked.removeHead());
 }
-console.log(nodeValues); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(nodeValues); // [1, 12, 2, 3, 4, 6, 7, 11, 8, 9, 10]
