@@ -8,7 +8,7 @@ class Node {
 class LinkedList {
   constructor (value = null) {
     // allow option to instantiate with a node
-    if (value) {
+    if (!(value === null)) {
       let initialNode = new Node(value);
       this.head = initialNode;
       this.tail = initialNode;
