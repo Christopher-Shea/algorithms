@@ -1,21 +1,20 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
-var insertKthFromEnd = function(list, value, k) {
+function insertKthFromEnd(list, value, k) {
   let newNode = new Node(value)
   let back = list.head;
   let front = list.head;
-  // move front pointer to be [k] ahead of back
-  while (k > 0) {
-    // if end is reached before k is down to zero, k is greater than length of list
-    // return list
+    // move front k nodes in front of back
+    while (k > 0) {
+    // k greater than length of list
     if (front === null) {
       return false;
     }
     front = front.next;
     k--;
   }
-  // if k is exactly the length of list, front will be null
+  // if k is the length of the list, front will be null
   // add node to front of list
   if (front === null) {
     newNode.next = list.head;
@@ -26,8 +25,7 @@ var insertKthFromEnd = function(list, value, k) {
     }
     return true;
   }
-  // back and front are separated by provided k
-  // move together until front is on the last node of the list (next will be null)
+  // move together until front is the last node of the list (next will be null)
   while(front.next) {
     back = back.next;
     front = front.next;
@@ -42,7 +40,8 @@ var insertKthFromEnd = function(list, value, k) {
   return true
 };
 
-// regular sized list
+
+// Regular sized list
 let list = new LinkedList();
 for (let i = 0; i <= 15; i++) {
   list.addTail(i);
@@ -68,7 +67,7 @@ while(current) {
 }
 console.log(values) // ['beginning', 0, 1, 2, 3, 4, 'middle', 5, 6, 7, 8, 9, 10, 11, 12, 'middle', 13, 14, 15, 'end']
 
-// two-item list
+// Two-item list
 list = new LinkedList(0);
 list.addTail(1);
 console.log(list.head.value); // 0
@@ -93,7 +92,7 @@ while(current) {
 }
 console.log(values) // ['beginning', 'middle', 0, 'middle', 'end']
 
-// one-item list
+// One-item list
 list = new LinkedList(0);
 console.log(list.head.value); // 0
 console.log(list.tail.value); // 0
@@ -117,7 +116,7 @@ while(current) {
 }
 console.log(values) // ['beginning', 'middle', 'middle', 'end']
 
-// empty list
+// Empty list
 list = new LinkedList();
 console.log(list.head); // null
 console.log(list.tail); // null

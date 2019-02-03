@@ -14,10 +14,11 @@ and an offset, 3
 {a -> b -> c -> d -> z -> e -> f -> g}
 ```
 
-## Constraints
 An offset of 0 will place the new node at the end of the list.
 An offset equal to the length of the list will place the new node at the beginning of the list.
 An offset greater than the length of the list will return the list unmodified.
+
+## Constraints
 Should be able to handle empty lists.
 
 ## Input
