@@ -1,6 +1,49 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
+// Naive solution - two passes
+// function insertKthFromEnd(list, value, k) {
+//   let newNode = new Node(value);
+//   let current = list.head;
+//   let length = 0;
+//   // find length of list
+//   while (current) {
+//     current = current.next;
+//     length++;
+//   }
+//   // k is out of bounds
+//   if (k > length) {
+//     return false;
+//   }
+//   // insert new head
+//   if (k === length) {
+//     newNode.next = list.head;
+//     list.head = newNode;
+//     // for case in which node is being added to an empty list
+//     if (newNode.next === null) {
+//       list.tail = newNode;
+//     }
+//     return true;
+//   }
+//   // find parent node for insertion point
+//   current = list.head;
+//   let target = length - k - 1;
+//   while(target > 0) {
+//     current = current.next;
+//     target--;
+//   }
+//   // insert node
+//   newNode.next = current.next;
+//   current.next = newNode;
+//   // if inserted node is at the end of the list, update the tail
+//   if (newNode.next === null) {
+//     list.tail = newNode;
+//   }
+//   return true;
+// }
+
+
+// Optimal solution - one pass
 function insertKthFromEnd(list, value, k) {
   let newNode = new Node(value)
   let back = list.head;

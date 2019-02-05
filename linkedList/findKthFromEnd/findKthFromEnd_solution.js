@@ -1,6 +1,34 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
+// Naive solution - two passes
+// function findKthFromEnd(list, k) {
+//   // check edge cases
+//   let current = list.head;
+//   if (!current || !k) {
+//     return null;
+//   }
+//   // find length of list;
+//   let length = 0;
+//   while(current) {
+//     current = current.next;
+//     length++;
+//   }
+//   // edge case
+//   if (k > length) {
+//     return null;
+//   }
+//   // find target value
+//   current = list.head;
+//   let target = length - k;
+//   while (target) {
+//     current = current.next;
+//     target--;
+//   }
+//   return current.value;
+// }
+
+// Optimal solution - one pass
 function findKthFromEnd(list, k) {
   let back = list.head;
   let front = list.head;
