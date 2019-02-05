@@ -5,8 +5,8 @@ function insertKthFromEnd(list, value, k) {
   let newNode = new Node(value)
   let back = list.head;
   let front = list.head;
-    // move front k nodes in front of back
-    while (k > 0) {
+  // move front k nodes in front of back
+  while (k > 0) {
     // k greater than length of list
     if (front === null) {
       return false;
@@ -16,7 +16,7 @@ function insertKthFromEnd(list, value, k) {
   }
   // if k is the length of the list, front will be null
   // add node to front of list
-  if (front === null) {
+  if (!front) {
     newNode.next = list.head;
     list.head = newNode;
     // for case in which node is being added to an empty list
@@ -25,7 +25,7 @@ function insertKthFromEnd(list, value, k) {
     }
     return true;
   }
-  // move together until front is the last node of the list (next will be null)
+  // move together until front is the last node of the list (its next pointer will be null)
   while(front.next) {
     back = back.next;
     front = front.next;
@@ -33,7 +33,7 @@ function insertKthFromEnd(list, value, k) {
   // the back node will be the parent of the inserted node
   newNode.next = back.next;
   back.next = newNode;
-  // inserted node is at the end of the list, update the tail
+  // if inserted node is at the end of the list, update the tail
   if (newNode.next === null) {
     list.tail = newNode;
   }

@@ -2,32 +2,27 @@ const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
 function findKthFromEnd(list, k) {
-  if (list.head) {
-    let back = list.head;
-    let front = list.head;
-    // move front k nodes in front of back
-    while (k > 0) {
-      // k greater than length of list
-      if (front === null) {
-        return null;
-      }
-      front = front.next;
-      k--;
+  let back = list.head;
+  let front = list.head;
+  // move front k nodes in front of back
+  while (k > 0) {
+    // k greater than length of list
+    if (front === null) {
+      return null;
     }
-    // move together until front is null (at the end of the list)
-    while (front) {
-      front = front.next;
-      back = back.next;
-    }
-    // if k is 0, back will be null and will not have a value
-    if (back) {
-      return back.value;
-    }
-    return null;
-  } else {
-    console.log('list is empty');
-    return null;
+    front = front.next;
+    k--;
   }
+  // move pointers together until front is null (at the end of the list)
+  while (front) {
+    front = front.next;
+    back = back.next;
+  }
+  // if k is 0, back will be null and will not have a value
+  if (back) {
+    return back.value;
+  }
+  return null;
 }
 
 
