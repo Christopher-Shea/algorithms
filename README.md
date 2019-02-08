@@ -1,5 +1,5 @@
 # Algorithms
-This is a collection of solutions to algorithmic puzzles I have particularly enjoyed, written in JavaScript.
+This is a collection of solutions to algorithmic puzzles I have come across, written in JavaScript.
 Some puzzles have multiple solutions provided.
 Solutions are annotated with explanations of the logic used.
 Each solution has its own readme with contextual notes (constraints, inputs, output) and any additional thoughts.
