@@ -1,7 +1,7 @@
 // Time complexity - assume O(nlogn) if sorting is needed, O(n) without sorting (one pass)
 // Space complexity is O(n), as merged intervals are added to a new array
 // Could use splice() to mutate input array directly and save memory, but this would greatly increase the time complexity (due to array re-indexing)
-function mergeIntervals(intervals, sorted) {
+function mergeIntervals(intervals, sorted = false) {
     // if intervals are not sorted, sort them by interval start
     if (!sorted) {
         intervals = intervals.sort((a, b) => a[0] - b[0]);
