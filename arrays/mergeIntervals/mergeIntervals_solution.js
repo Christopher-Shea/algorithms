@@ -1,3 +1,6 @@
+// Time complexity - assume O(nlogn) if sorting is needed, O(n) without sorting (one pass)
+// Space complexity is O(n), as merged intervals are added to a new array
+// Could use splice() to mutate input array directly and save memory, but this would greatly increase the time complexity (due to array re-indexing)
 function mergeIntervals(intervals, sorted) {
     // if intervals are not sorted, sort them by interval start
     if (!sorted) {
@@ -22,9 +25,10 @@ function mergeIntervals(intervals, sorted) {
             // if none of these cases are met, the current interval is wholly contained within the last merged interval
             // and can be disregarded
         }
-    } 
+    }
     return merged;
 };
+
 
 console.log(mergeIntervals([])); // []
 let intervals = [[1, 4], [2, 6], [7, 10], [8, 12], [12, 13]];
@@ -37,3 +41,5 @@ intervals.push([14, 14], [16, 24]);
 console.log(mergeIntervals(intervals)); // [[1, 6], [7, 13], [14, 14], [15, 25]]
 intervals.push([0, 50])
 console.log(mergeIntervals(intervals)); // [[0, 50]]
+
+module.exports = mergeIntervals;

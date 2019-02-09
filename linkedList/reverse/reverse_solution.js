@@ -2,6 +2,7 @@ const LinkedList = require('../linkedList.js').LinkedList;
 
 
 // Using a stack (implemented via a linked list with addHead() and removeHead() replacing push() and pop())
+// O(n) time and space complexity
 // function reverseList(list) {
 //   const stack = new LinkedList();
 //   while(list.head) {
@@ -25,7 +26,7 @@ const LinkedList = require('../linkedList.js').LinkedList;
 //   return list;
 // }
 
-// Reverse in place - no additional memory needed
+// Reverse in place - O(n) time and O(1) space
 function reverseList(list) {
   let current = list.head;
   let prev = null;
@@ -46,6 +47,7 @@ function reverseList(list) {
   list.head = prev;
   return list;
 }
+
 
 // build list and check head and tail
 let list = new LinkedList();

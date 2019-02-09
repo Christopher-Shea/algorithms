@@ -20,6 +20,7 @@ function fibonacci(n) {
   return n ? b : a;
 }
 
+
 console.log(fibonacci(0)); // 0
 console.log(fibonacci(1)); // 1
 console.log(fibonacci(2)); // 1

@@ -1,7 +1,7 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
-// Naive solution - two passes
+// Naive solution - O(n) two passes with one pointer
 // function findKthFromEnd(list, k) {
 //   // check edge cases
 //   let current = list.head;
@@ -28,7 +28,8 @@ const Node = require('../linkedList.js').Node;
 //   return current.value;
 // }
 
-// Optimal solution - one pass
+
+// Optimal solution - O(n) one pass using two pointers
 function findKthFromEnd(list, k) {
   let back = list.head;
   let front = list.head;

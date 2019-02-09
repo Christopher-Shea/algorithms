@@ -123,7 +123,7 @@ class LinkedList {
     }
   }
 
-  // Removes a target value from the list and returns the new head
+  // Removes a target value from the list and returns the new head - O(n)
   // Assumes that values in the list are unique;
   remove(target) {
     if (this.head) {
@@ -159,7 +159,7 @@ class LinkedList {
     }
   };
 
-  // Inserts a value into the list after a given target value
+  // Inserts a value into the list after a given target value - O(n)
   // Assumes that values in the list are unique;
   insert(target, insert) {
     let newNode = new Node(insert);
@@ -184,10 +184,6 @@ class LinkedList {
 
 }
 
-module.exports = {
-  LinkedList,
-  Node
-}
 
 const linked = new LinkedList();
 console.log(linked.head, linked.tail); // null, null
@@ -227,3 +223,8 @@ while(linked.tail){
   nodeValues.push(linked.removeHead());
 }
 console.log(nodeValues); // [1, 12, 2, 3, 4, 6, 7, 11, 8, 9, 10]
+
+module.exports = {
+  LinkedList,
+  Node
+}

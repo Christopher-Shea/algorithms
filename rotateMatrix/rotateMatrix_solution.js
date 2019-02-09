@@ -1,5 +1,5 @@
 // Only for square matrices, does not take a directional input
-// Rotates concentric squares until center is reached
+// Rotates concentric squares until center is reached - O(1) space complexity
 // function rotateMatrix (matrix) {
 //   const l = matrix.length - 1;
 //   for (let i = 0; i < matrix.length/2; i++) {
@@ -61,6 +61,7 @@
 
 // Square OR rectangular matrices, clockwise OR counterclockwise, any number of times
 // Same logic as previous solution, but using reduceRight/reduce instead of map.reverse/map
+// Space complexity O(mn) where mn is the size of the matrix
 function rotateMatrix (matrix, velocity = 1) {
   // 4 rotations return matrix to starting point
   velocity = velocity % 4;
@@ -86,7 +87,6 @@ function rotateMatrix (matrix, velocity = 1) {
   return velocity === 0 ? rotated : rotateMatrix(rotated, velocity);
 }
 
-module.exports = rotateMatrix;
 
 // square matrix
 console.log(rotateMatrix([[1, 2], [3, 4]]));
@@ -140,3 +140,5 @@ console.log(rotateMatrix([[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15
 //  [3, 9, 15],
 //  [2, 8, 14],
 //  [1, 7, 13]]
+
+module.exports = rotateMatrix;

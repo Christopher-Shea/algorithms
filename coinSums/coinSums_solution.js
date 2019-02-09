@@ -4,7 +4,7 @@ const coins = [1, 2, 5, 10, 20, 50, 100, 200];
 // American coins
 // const coins = [1, 5, 10, 25, 50, 100];
 
-// Recursive solution
+// Recursive solution - time complexity is exponential! O(2^n)
 // function coinSums(total) {
 //   let count = 0;
 //   (function makeChange(index, value) {
@@ -27,6 +27,8 @@ const coins = [1, 2, 5, 10, 20, 50, 100, 200];
 // }
 
 // Dynamic programming solution
+// Space complexity - O(n)
+// Time complexity - O(mn) where m is number of coins available, and n is the input value
 function coinSums(total) {
   // dynamically build the set of solutions for all totals UP TO the input total value
   // for a given total value, the number of solutions for that value will be represented by the integer found at that index in the array
@@ -51,6 +53,7 @@ function coinSums(total) {
   // return the last value of the array
   return sums[total];
 }
+
 
 console.log(coinSums(5)); // 4
 console.log(coinSums(8)); // 7

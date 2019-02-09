@@ -22,10 +22,10 @@ Should be able to handle an empty array.
 Cannot assume that the array is sorted to begin with.
 
 ## Input
-An array of intervals, represent as arrays
+An array of intervals, represented as arrays
 
 ## Output
-An array of merged intervals
+An array of the merged intervals
 
 ## Additional Notes
 Have added a parameter to indicate if the input array is sorted (by interval start)

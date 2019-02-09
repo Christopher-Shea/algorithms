@@ -1,7 +1,7 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
-// Naive solution - two passes
+// Naive solution - O(n) two passes with one pointer
 // function insertKthFromEnd(list, value, k) {
 //   let newNode = new Node(value);
 //   let current = list.head;
@@ -43,7 +43,7 @@ const Node = require('../linkedList.js').Node;
 // }
 
 
-// Optimal solution - one pass
+// Optimal solution - O(n) one pass using two pointers
 function insertKthFromEnd(list, value, k) {
   let newNode = new Node(value)
   let back = list.head;
