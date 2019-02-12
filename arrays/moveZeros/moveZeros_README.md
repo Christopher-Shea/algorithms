@@ -29,3 +29,4 @@ An array of integers
 The number of non-zero integers
 
 ## Additional Notes
+I have completed two solutions for this problem - one in which the order of the non-0 integers is maintained, and one in which it is not. Both of these solutions do not use additional memory and are O(n) for time complexity.

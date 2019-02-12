@@ -104,6 +104,17 @@ class LinkedList {
     }
   }
 
+  // Report size of list
+  length() {
+    let length = 0;
+    let current = this.head;
+    while(current) {
+      length++;
+      current = current.next;
+    }
+    return length;
+  }
+
   // Search list to see if a value is present - O(n)
   contains(target) {
     if (this.head) {
@@ -185,44 +196,53 @@ class LinkedList {
 }
 
 
-const linked = new LinkedList();
-console.log(linked.head, linked.tail); // null, null
-linked.addTail('tail');
-console.log(linked.head.value, linked.tail.value); // 'tail', 'tail'
-console.log(linked.head.next, linked.tail.next); // null, null
-console.log(linked.removeTail()); // 'tail'
-console.log(linked.head, linked.tail); // null, null
-linked.addHead('head');
-console.log(linked.head.value, linked.tail.value); // 'head', 'head'
-console.log(linked.head.next, linked.tail.next); // null, null
-console.log(linked.removeHead()); // 'head'
-console.log(linked.head, linked.tail); // null, null
+const list = new LinkedList();
+console.log(list.head, list.tail); // null, null
+list.addTail('tail');
+console.log(list.head.value, list.tail.value); // 'tail', 'tail'
+console.log(list.head.next, list.tail.next); // null, null
+console.log(list.length()); // 1
+console.log(list.removeTail()); // 'tail'
+console.log(list.head, list.tail); // null, null
+console.log(list.length()); // 0
+list.addHead('head');
+console.log(list.head.value, list.tail.value); // 'head', 'head'
+console.log(list.head.next, list.tail.next); // null, null
+console.log(list.length()); // 1
+console.log(list.removeHead()); // 'head'
+console.log(list.head, list.tail); // null, null
+console.log(list.length()); // 0
 
 for (let i = 0; i <= 10; i++) {
-  linked.addHead(i);
+  list.addHead(i);
 }
-linked.remove(0);
-linked.insert(7, 11);
-linked.remove(5);
-linked.insert(1, 12)
+list.remove(0);
+list.insert(7, 11);
+list.remove(5);
+list.insert(1, 12)
+console.log(list.length()); // 11
 let nodeValues = [];
-while(linked.head){
-  nodeValues.push(linked.removeTail());
+while(list.head){
+  nodeValues.push(list.removeTail());
 }
 console.log(nodeValues); // [12, 1, 2, 3, 4, 6, 11, 7, 8, 9, 10]
+console.log(list.length()); // 0
 
 for (let i = 0; i <= 10; i++) {
-  linked.addTail(i);
+  list.addTail(i);
 }
-linked.remove(0);
-linked.insert(7, 11);
-linked.remove(5);
-linked.insert(1, 12)
+list.remove(0);
+list.insert(7, 11);
+list.remove(5);
+list.insert(1, 12)
+console.log(list.length()); // 11
 nodeValues = [];
-while(linked.tail){
-  nodeValues.push(linked.removeHead());
+while(list.tail){
+  nodeValues.push(list.removeHead());
 }
 console.log(nodeValues); // [1, 12, 2, 3, 4, 6, 7, 11, 8, 9, 10]
+console.log(list.length()); // 0
+
 
 module.exports = {
   LinkedList,
