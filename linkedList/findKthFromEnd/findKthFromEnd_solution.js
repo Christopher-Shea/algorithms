@@ -1,5 +1,4 @@
 const LinkedList = require('../linkedList.js').LinkedList;
-const Node = require('../linkedList.js').Node;
 
 // Naive solution - O(n) two passes with one pointer
 // function findKthFromEnd(list, k) {

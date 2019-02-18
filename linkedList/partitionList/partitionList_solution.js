@@ -1,6 +1,5 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 
-
 // If order matters
 // O(n) time, O(1) space
 function partitionList(list, value) {
@@ -41,7 +40,6 @@ function partitionList(list, value) {
     // move to the next node
     current = next;
   }
-
   // if there are no nodes in the less-than partition
   if (!lessHead) {
       list.head = greaterHead;
@@ -76,26 +74,20 @@ function partitionList(list, value) {
 //     // grab a reference to the next node in the list and then delete the current node's reference to that node
 //     next = current.next;
 //     current.next = null;
-//     if (current.value < value) {
-//       if(!lessThan) {
-//         // if working list is empty
-//         greaterThan = current;
-//       } else {
-//         // add the current node to the head of the working list
-//         current.next = lessThan;
-//       }
-//       // set working head
+//     // for first node
+//     if (!lessThan) {
+//       greaterThan = current;
 //       lessThan = current;
 //     } else {
-//       if(!lessThan) {
-//         // if working list is empty
+//       if (current.value < value) {
+//         // add the current node to the head of the working list
+//         current.next = lessThan;
 //         lessThan = current;
 //       } else {
 //         // add the current node to the tail of the working list
 //         greaterThan.next = current;
+//         greaterThan = current;
 //       }
-//       // set working tail
-//       greaterThan = current;
 //     }
 //     // move to the next node
 //     current = next;
@@ -121,13 +113,14 @@ for (let i = 0; i <= 15; i++) {
 console.log(list.head.value); // 0
 console.log(list.tail.value); // 15
 list = partitionList(list, 20);
-console.log(list.head.value); // 15
-console.log(list.tail.value); // 0
+console.log(list.head.value); // 0 (15 if order doesn't matter)
+console.log(list.tail.value); // 15 (0 if order doesn't matter)
 let values = [];
 while(list.head) {
   values.push(list.removeHead());
 }
 console.log(values); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+// if order doesn't matter: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 
 // list with all values greaterThan
 for (let i = 2; i <= 15; i++) {
@@ -169,7 +162,7 @@ for (let value of values) {
 console.log(list.head.value); // 7
 console.log(list.tail.value); // 34
 list = partitionList(list, 35);
-console.log(list.head.value); // 34
+console.log(list.head.value); // 7 (34 if order doesn't matter)
 console.log(list.tail.value); // 75
 // print out all values
 values = [];

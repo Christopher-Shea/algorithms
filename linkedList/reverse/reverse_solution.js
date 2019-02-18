@@ -1,6 +1,5 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 
-
 // Using a stack (implemented via a linked list with addHead() and removeHead() replacing push() and pop())
 // O(n) time and space complexity
 // function reverseList(list) {

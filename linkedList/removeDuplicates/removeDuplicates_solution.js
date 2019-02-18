@@ -1,5 +1,4 @@
 const LinkedList = require('../linkedList.js').LinkedList;
-const Node = require('../linkedList.js').Node;
 
 // O(n) time, O(n) space
 function removeDuplicates(list) {
