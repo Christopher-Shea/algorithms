@@ -1,7 +1,7 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 const Node = require('../linkedList.js').Node;
 
-
+// O(n) time, O(n) space, where n is the length of the longer list
 function sumLists(list1, list2, order = 'backwards') {
   let sumList = new LinkedList();
   let current1 = list1.head;
@@ -33,6 +33,7 @@ function sumLists(list1, list2, order = 'backwards') {
   }
   return sumList;
 }
+
 
 // add two empty lists
 let list1 = new LinkedList();

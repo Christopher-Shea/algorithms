@@ -1,4 +1,5 @@
 // Keep non-0 integers in same order
+// O(n) time, O(1) space
 // function moveZeros(integers) {
 //   let swap;
 //   for (let i = 0; i < integers.length; i++) {
@@ -29,6 +30,7 @@
 
 
 // If order of non-0 integers does not matter
+// O(n) time, O(1) space
 function moveZeros(integers){
   // for empty arrays
   if (!integers.length) {

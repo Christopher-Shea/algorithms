@@ -1,6 +1,6 @@
 const LinkedList = require('../linkedList.js').LinkedList;
 
-
+// O(n+m) time (lengths of lists), O(1) space
 function findIntersection(list1, list2) {
   // count length of lists
   let length1 = 0

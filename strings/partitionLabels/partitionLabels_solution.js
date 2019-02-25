@@ -16,7 +16,7 @@ const mergeIntervals = require('../../arrays/mergeIntervals/mergeIntervals_solut
 //     }
 //   }
 //   // grab all intervals, merge them, and map the merged intervals to their respective lengths
-//   return mergeIntervals(Object.values(intervals)).map(interval => interval[1] - interval[0] + 1);
+//   return mergeIntervals(Object.values(intervals), false).map(interval => interval[1] - interval[0] + 1);
 // }
 
 // Using a JavaScript Map, which does guarantee insertion order, means intervals do not need to be sorted
@@ -45,6 +45,7 @@ function partitionLabels(string) {
   return mergeIntervals(intervalArray, true).map(interval => interval[1] - interval[0] + 1);
 
   }
+
 
 console.log(partitionLabels('')); // []
 console.log(partitionLabels('abcdefg')); // [1, 1, 1, 1, 1, 1, 1]
