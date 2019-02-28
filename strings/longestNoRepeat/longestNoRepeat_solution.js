@@ -11,7 +11,8 @@ function longestNoRepeat(string) {
     if (char in library) {
       // if the character has already been seen, there are two possibilities
       // 1 - the second-most recent appearance occurs before the start of the current substring, can disregard
-      // 2 - the second-most recent appearance is contained within the current substring, must update start index to exclude (1 index ahead of prior occurrence)
+      // 2 - the second-most recent appearance is contained within the current substring,
+          // -> must update start index to exclude second-most recent appearance (1 index ahead)
       start = Math.max(start, library[char] + 1);
     }
     // update the most recent appearance of the character in the library

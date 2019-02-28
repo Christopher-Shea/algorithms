@@ -1,64 +1,86 @@
 // Keep non-0 integers in same order
 // O(n) time, O(1) space
-// function moveZeros(integers) {
-//   let swap;
-//   for (let i = 0; i < integers.length; i++) {
-//     // only interested in taking action when integer is 0;
-//     if (!integers[i]) {
-//       // give swap a value the first time it is used
-//       if (!swap) {
-//         swap = i + 1;
-//       }
-//       // increment swap until it is either ouf of bounds (undefined) or a non-0 integer
-//       while(integers[swap] === 0) {
-//         swap++;
-//       }
-//       // if swap is out of bounds, there are no non-0 integers to swap with the current index
-//       // since everything before the current index is a non-0 integer, there are i non-0 integers
-//       if (swap === integers.length) {
-//         return i;
-//       }
-//       // if swap is in bounds AND non-0, can swap it with the 0 found at i
-//       [integers[i], integers[swap]] = [integers[swap], integers[i]];
-//       // since a 0 was just placed at swap's index, increment to use as starting point for next non-0 search
-//       swap++
-//     }
-//   }
-//   // for empty arrays and arrays with all non-zero integers
-//   return integers.length ? integers.length : null;
-// }
-
+function moveZeros(integers) {
+  let swap;
+  for (let i = 0; i < integers.length; i++) {
+    // only interested in taking action when integer is 0;
+    if (integers[i] === 0) {
+      // give swap a value the first time it is used
+      if (swap === undefined) {
+        swap = i + 1;
+      }
+      // increment swap until it is either ouf of bounds (undefined) or a non-0 integer
+      while(integers[swap] === 0) {
+        swap++;
+      }
+      // if swap is out of bounds, there are no non-0 integers to swap with the current index
+      // since everything before the current index is a non-0 integer, there are i non-0 integers
+      if (swap === integers.length) {
+        return i;
+      }
+      // if swap is in bounds AND non-0, can swap it with the 0 found at i
+      [integers[i], integers[swap]] = [integers[swap], integers[i]];
+      // since a 0 was just placed at swap's index, increment to use as starting point for next non-0 search
+      swap++
+    }
+  }
+  // for empty arrays and arrays with all non-zero integers
+  return integers.length ? integers.length : null;
+}
 
 // If order of non-0 integers does not matter
 // O(n) time, O(1) space
-function moveZeros(integers){
-  // for empty arrays
-  if (!integers.length) {
-    return null;
-  }
-  // will move towards the center from both ends of the array
-  // searching for 0s from the start, and non-0s from the back
-  let i = 0;
-  let swap = integers.length - 1;
-  while(i <= swap) {
-    // if i is a 0
-    if (!integers[i]) {
-      // check if swap is non-0
-      if (integers[swap]) {
-        // if it is, do the swap and then increment i to check next element in array
-        [integers[i], integers[swap]] = [integers[swap], integers[i]];
-        i++;
-      }
-      // in both cases - whether swap successful, or still looking for non-0, decrement swap
-      swap--;
-    } else {
-      // if i is not a 0, can leave untouched - move to next element of array
-      i++;
-    }
-  }
-  // since everything before i is a non-0 integer, there are i non-0 integers
-  return i;
-}
+// function moveZeros(integers){
+//   // for empty arrays
+//   if (!integers.length) {
+//     return null;
+//   }
+//   // will move towards the center from both ends of the array
+//   // searching for 0s from the start, and non-0s from the back
+//   let i = 0;
+//   let swap = integers.length - 1;
+//   while(i <= swap) {
+//     // if i is a 0
+//     if (!integers[i]) {
+//       // check if swap is non-0
+//       if (integers[swap]) {
+//         // if it is, do the swap and then increment i to check next element in array
+//         [integers[i], integers[swap]] = [integers[swap], integers[i]];
+//         i++;
+//       }
+//       // in both cases - whether swap successful, or still looking for non-0, decrement swap
+//       swap--;
+//     } else {
+//       // if i is not a 0, can leave untouched - move to next element of array
+//       i++;
+//     }
+//   }
+//   // since everything before i is a non-0 integer, there are i non-0 integers
+//   return i;
+// }
+
+// Move zeros to front of array, keeping relative order of non-zeros
+// O(n) time, O(1) space
+// function moveZeros(integers) {
+//   let swap;
+//   for (let i = integers.length - 1; i >= 0; i--) {
+//     if (integers[i] === 0) {
+//       if (swap === undefined) {
+//         swap = i - 1;
+//       }
+//       while(integers[swap] === 0) {
+//         swap--;
+//       }
+//       if (swap === -1) {
+//         return integers.length - 1 - i;
+//       }
+//       [integers[i], integers[swap]] = [integers[swap], integers[i]];
+//       swap--;
+//     }
+//   }
+//   return integers.length ? integers.length : null;
+// }
+
 
 
 // empty array
