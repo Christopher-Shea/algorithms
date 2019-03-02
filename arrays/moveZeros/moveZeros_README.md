@@ -1,5 +1,5 @@
 # Description
-Given an array of integers, move all the zeros to the end of the array, and return the number of non-zero integers.
+Given an array of integers, move all the zeros to the end of the array (mutating input array), and return the number of non-zero integers.
 
 For example, the array
 
@@ -29,4 +29,6 @@ An array of integers
 The number of non-zero integers
 
 ## Additional Notes
-I have completed two solutions for this problem - one in which the order of the non-0 integers is maintained, and one in which it is not. Both of these solutions do not use additional memory and are O(n) for time complexity.
+Two main ways to approach this problem - swap values, or overwrite
+Have also provided solution for moving zeros if relative order of non-zeros does NOT matter
+Have also provided solutions for moving zeros to front of the array
