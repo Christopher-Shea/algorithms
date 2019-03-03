@@ -32,3 +32,6 @@ The number of non-zero integers
 Two main ways to approach this problem - swap values, or overwrite
 Have also provided solution for moving zeros if relative order of non-zeros does NOT matter
 Have also provided solutions for moving zeros to front of the array
+
+
+Solution can be tweaked to accept a target value to be removed from the given array as well.
