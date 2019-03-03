@@ -36,3 +36,5 @@ console.log(isSubsequence(string, 'iiaeayoioeiaueoueuee')); // true
 console.log(isSubsequence(string, 'whowouldexpctthis')); // false
 console.log(isSubsequence(string, 'iwouldnt')); // false
 console.log(isSubsequence(string, 'thisisastringtest')); // true
+
+module.exports = isSubsequence;
