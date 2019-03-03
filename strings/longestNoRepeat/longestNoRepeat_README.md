@@ -1,5 +1,5 @@
 # Description
-Given a string, find the longest substring such that no characters within the substring appear more than once within that substring.
+Given a string, find the longest substring such that no characters within the substring appear more than once within that substring and return its length.
 
 For example, the strings
 
@@ -19,6 +19,6 @@ will return
 A string
 
 ## Output
-The longest substring with no repeating characters
+The length of the longest substring with no repeating characters
 
 ## Additional Notes

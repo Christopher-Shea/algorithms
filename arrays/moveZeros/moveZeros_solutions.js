@@ -55,7 +55,7 @@ function moveZeros(integers) {
 	let swap = 0;
 	for(let i = 0; i < integers.length; i++){
 		if(integers[i] !== 0){
-      integers[swap] = integers[i];
+    	integers[swap] = integers[i];
 			swap++;
 		}
   }
