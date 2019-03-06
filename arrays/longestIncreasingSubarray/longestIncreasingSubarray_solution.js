@@ -1,12 +1,17 @@
 // O(n) time, O(1) space
 function longestIncreasingSubarray(integers) {
+  // start with the assumption that there is at least one integer in the array
+  // each integer by itself counts as an increasing subarray
   let workingLength = 1;
   let maxLength = 1;
   for (let i = 0; i < integers.length; i++) {
+    // if the next integer in the array is larger
     if (integers[i] < integers[i + 1]) {
+      // incrase the working length and check if it is larger than the current maximum length
       workingLength++;
       maxLength = Math.max(maxLength, workingLength);
     } else {
+      // if next integer is smaller, reset the working length
       workingLength = 1;
     }
   }

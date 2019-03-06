@@ -21,7 +21,7 @@
 //         return false;
 //     }
 //   }
-//   // none of the negative tests have been met, secong string must be an anagram
+//   // none of the negative tests have been met, second string must be an anagram
 //   return true;
 // }
 
